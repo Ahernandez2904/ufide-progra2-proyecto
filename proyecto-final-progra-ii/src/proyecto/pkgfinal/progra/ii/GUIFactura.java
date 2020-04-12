@@ -4,6 +4,8 @@ package proyecto.pkgfinal.progra.ii;
 import javax.swing.*;
 import java.util.*;
 import java.io.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -14,9 +16,25 @@ public class GUIFactura extends javax.swing.JFrame {
     //int CantidadNinos = 0; //Conteo para ver cuantos Ninos ingresaron en el dia
     //int CantidadAdultos = 0; //Conteo para ver cuantos Adultos ingresaron en el dia
  
+    String[] choferes = {"Andres Vargas","Mariana Diaz","Alvaro Matarrita","Maria Gonzalez","Michael Conejo"};
+    String[] rutas = {"RT-789 / SJO - Tres Rios","RT-456 / SJO - San Diego","RT-231 / SJO - Concepcion"};
+    
+    public void iniciarComboboxRutas(){
+        for (int i = 0; i <= rutas.length - 1; i++) {
+            uiComboID.addItem(rutas[i]);
+        }
+    }
+    
+    public void iniciarComboboxChoferes(){
+        for (int i = 0; i <= choferes.length - 1; i++) {
+            uiComboNombre.addItem(choferes[i]);
+        }
+    }
     
     public GUIFactura() {
         initComponents();
+        iniciarComboboxChoferes();
+        iniciarComboboxRutas();
         facturas = new LinkedList<>();
     }
 
@@ -105,14 +123,13 @@ public class GUIFactura extends javax.swing.JFrame {
             }
         });
 
-        uiComboNombre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Andres Vargas", "Mariana Diaz", "Alvaro Matarrita", "Maria Gonzalez", "Michael Conejo" }));
         uiComboNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 uiComboNombreActionPerformed(evt);
             }
         });
 
-        uiComboID.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "RT-789 / SJO - Tres Rios", "RT-456 / SJO - San Diego", "RT-231 / SJO - Concepcion" }));
+        uiComboID.setAutoscrolls(true);
         uiComboID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 uiComboIDActionPerformed(evt);
@@ -141,7 +158,7 @@ public class GUIFactura extends javax.swing.JFrame {
                             .addComponent(uiTXTfecha))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(uiButtonVerFacActual, javax.swing.GroupLayout.DEFAULT_SIZE, 413, Short.MAX_VALUE)
+                            .addComponent(uiButtonVerFacActual, javax.swing.GroupLayout.DEFAULT_SIZE, 444, Short.MAX_VALUE)
                             .addComponent(uiButtonAgregarRegistro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addComponent(uiButtonCargarFactura, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(uiButtonGuardarFactura, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -198,37 +215,13 @@ public class GUIFactura extends javax.swing.JFrame {
 
     private void uiButtonAgregarRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uiButtonAgregarRegistroActionPerformed
 
-        String nombreChofer = null;
-            if (uiComboNombre.getSelectedIndex() == 0){
-              nombreChofer = "Andres Vargas";
-            }
-            if(uiComboNombre.getSelectedIndex() == 1){
-              nombreChofer = "Mariana Diaz";
-            }
-            if(uiComboNombre.getSelectedIndex() == 2){
-              nombreChofer = "Alvaro Matarrita";  
-            }
-            if (uiComboNombre.getSelectedIndex() == 3){
-              nombreChofer = "Maria Gonzalez";
-            }
-            if(uiComboNombre.getSelectedIndex() == 4){
-              nombreChofer = "Michael Conejo";
-            }
+        String nombreChofer = String.valueOf(uiComboNombre.getSelectedItem());
+        String IDruta = String.valueOf(uiComboID.getSelectedItem());
            
-        String IDruta = null;
-            if (uiComboID.getSelectedIndex() == 0){
-              IDruta = "RT-789 / SJO - Tres Rios";
-            }
-            if(uiComboID.getSelectedIndex() == 1){
-              IDruta = "RT-456 / SJO - San Diego";
-            }
-            if(uiComboID.getSelectedIndex() == 2){
-              IDruta = "RT-231 / SJO - Concepcion"; 
-            }
               
         String edadPasajero = null;
+        
         int montoPasaje = 0;
-     
             if (uiComboEdad.getSelectedIndex() == 0){
               montoPasaje = 300; //se aplica un descuento por ser menor
               edadPasajero = "Menor de Edad";
@@ -243,12 +236,25 @@ public class GUIFactura extends javax.swing.JFrame {
             }   
             
             String fecha = uiTXTfecha.getText();
+            
+            try { //valida fecha
+                SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
+                formatoFecha.setLenient(false);
+                formatoFecha.parse(fecha);
+                facturas.add (new FacturasBuses(nombreChofer, IDruta, edadPasajero, montoPasaje, fecha));
+            } catch (ParseException e) { System.out.println(e); //salta si la fecha esta mal
+                JOptionPane.showMessageDialog(null, "Utilice el formato fecha dd/MM/yyyy"); 
+            } catch (Exception e) { System.out.println(e); //salta los demás errores
+                JOptionPane.showMessageDialog(null, "Porfavor rellene el espacio de 'fecha' para continuar"); 
+            }
+            /*
             if (fecha.isEmpty() == false ){
                 facturas.add (new FacturasBuses(nombreChofer, IDruta, edadPasajero, montoPasaje, fecha));
+                System.out.println(nombreChofer + IDruta + edadPasajero + montoPasaje + fecha);
             }else{
                 JOptionPane.showMessageDialog(null, "Porfavor rellene el espacio de 'fecha' para continuar");
             }
- 
+ */
         uiTXTfecha.setText(""); 
           
         //String fecha = uiTXTfecha.getText();
