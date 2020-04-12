@@ -1,6 +1,10 @@
-package proyecto.pkgfinal.progra.ii;
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
@@ -26,48 +30,69 @@ public class IniciarSesion extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        GUISesion = new javax.swing.JButton();
-        GUIUsuario = new javax.swing.JTextField();
-        GUIPassword = new javax.swing.JTextField();
-        GUIAgregar = new javax.swing.JButton();
+        uiUsuario = new javax.swing.JTextField();
+        uiPassword = new javax.swing.JPasswordField();
+        uiInicio = new javax.swing.JButton();
+        uiAgregar = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        GUISesion.setText("Iniciar sesion");
-        GUISesion.addMouseListener(new java.awt.event.MouseAdapter() {
+        uiUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                uiUsuarioActionPerformed(evt);
+            }
+        });
+        uiUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                uiUsuarioKeyTyped(evt);
+            }
+        });
+
+        uiInicio.setText("Iniciar");
+        uiInicio.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                GUISesionMouseClicked(evt);
-            }
-        });
-        GUISesion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                GUISesionActionPerformed(evt);
+                uiInicioMouseClicked(evt);
             }
         });
 
-        GUIUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                GUIUsuarioActionPerformed(evt);
-            }
-        });
-
-        GUIAgregar.setText("Agregar ");
-        GUIAgregar.addMouseListener(new java.awt.event.MouseAdapter() {
+        uiAgregar.setText("Agregar");
+        uiAgregar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                GUIAgregarMouseClicked(evt);
+                uiAgregarMouseClicked(evt);
             }
         });
-        GUIAgregar.addActionListener(new java.awt.event.ActionListener() {
+        uiAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                GUIAgregarActionPerformed(evt);
+                uiAgregarActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("Usuario:");
+        jLabel3.setText("Inicio de Sesion");
 
-        jLabel2.setText("Password:");
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(171, 171, 171)
+                .addComponent(jLabel3)
+                .addContainerGap(186, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(jLabel3)
+                .addContainerGap(28, Short.MAX_VALUE))
+        );
+
+        jLabel1.setText("Usuario");
+
+        jLabel2.setText("Password");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -76,70 +101,86 @@ public class IniciarSesion extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(151, 151, 151)
-                        .addComponent(GUISesion))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(160, 160, 160)
-                        .addComponent(GUIAgregar)))
+                        .addGap(161, 161, 161)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(uiAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(uiInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 102, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel1))
-                .addGap(52, 52, 52)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(GUIUsuario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(GUIPassword, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(100, 100, 100))
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2))
+                .addGap(23, 23, 23)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(uiUsuario)
+                    .addComponent(uiPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE))
+                .addGap(86, 86, 86))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(92, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(GUIUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(uiUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
-                .addGap(18, 18, 18)
+                .addGap(51, 51, 51)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(GUIPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(uiPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
-                .addGap(64, 64, 64)
-                .addComponent(GUISesion)
-                .addGap(29, 29, 29)
-                .addComponent(GUIAgregar)
-                .addGap(35, 35, 35))
+                .addGap(31, 31, 31)
+                .addComponent(uiInicio)
+                .addGap(18, 18, 18)
+                .addComponent(uiAgregar)
+                .addGap(31, 31, 31))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void GUIUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GUIUsuarioActionPerformed
+    private void uiUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uiUsuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_GUIUsuarioActionPerformed
+    }//GEN-LAST:event_uiUsuarioActionPerformed
 
-    private void GUIAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GUIAgregarActionPerformed
+    private void uiAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uiAgregarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_GUIAgregarActionPerformed
+    }//GEN-LAST:event_uiAgregarActionPerformed
 
-    private void GUISesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GUISesionActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_GUISesionActionPerformed
+    private void uiUsuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_uiUsuarioKeyTyped
+               char c=evt.getKeyChar();
+        if(Character.isLetter(c)) {
+            getToolkit().beep();
+            evt.consume();
+            JOptionPane.showMessageDialog(null, "Ingrese su cedula");
+        }
+    }//GEN-LAST:event_uiUsuarioKeyTyped
 
-    private void GUISesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GUISesionMouseClicked
-        
-        String nombre = null;
-        int cedula;
+    private void uiAgregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_uiAgregarMouseClicked
+        RegistroChofer RegistroC = new RegistroChofer();
+        RegistroC.setVisible(true);
+        this.setVisible(false);   
+    }//GEN-LAST:event_uiAgregarMouseClicked
+
+    private void uiInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_uiInicioMouseClicked
+          String nombre = null;
+        String apellido = null;
+        int id;
         int edad;
+        String genero = null;
+        String departamento= null;
         String horario= null;
         String usuario = null;
-        String password = null;
+        String contrasenna = null;
         int cont = 0;
          try{
             File fichero_entrada;
             File fichero_salida = null;
            
-            fichero_entrada = new File (System.getProperty("user.dir")+"\\RegistroPersonal\\"+GUIUsuario.getText()+".txt");
+            fichero_entrada = new File ("RegistroChofer\\"+uiUsuario.getText()+".txt");
+            fichero_entrada = new File (System.getProperty("user.dir")+"\\RegistroChofer\\"+uiUsuario.getText()+".txt");
+
             //Si no hay fichero de entrada no hacemos proceso de cálculo
             if (!fichero_entrada.exists()) {
                 System.out.println ("No existe el fichero de entrada especificado"); 
@@ -166,42 +207,34 @@ public class IniciarSesion extends javax.swing.JFrame {
                     if(i==0){
                          nombre = datosDeEntradaArray[i];
                     }
-                  
                     if(i==1){
-                         password = datosDeEntradaArray[i];
+                         usuario = datosDeEntradaArray[i];
+                    }
+                    if(i==2){
+                         contrasenna = datosDeEntradaArray[i];
                     }
                     //System.out.println("Mostrando línea en fichero " + (i+1) + ": " + datosDeEntradaArray[i]);
                 }
 
             }
-        }catch (Exception e) {System.out.println ("Se ha producido un error " +e + ". Revise argumentos y datos");}
+        }catch (FileNotFoundException e) {System.out.println ("Se ha producido un error " +e + ". Revise argumentos y datos");}
         
                 
-        if(GUIPassword.getText().equals(password)==true && GUIUsuario.getText().equals(usuario)==true){
+        if(uiPassword.getText().equals(contrasenna)==true && uiUsuario.getText().equals(usuario)==true){
             JOptionPane.showMessageDialog(null, "Bienvenido(a) "+ nombre);
           //Aqui va el enlace al menu
-            PantallaPrincipal jmenu = new PantallaPrincipal();
+            MenuPrincipal jmenu = new MenuPrincipal();
             jmenu.setVisible(true);
             IniciarSesion.this.dispose();
         }
         else{
             
             JOptionPane.showMessageDialog(null, "Error de credenciales");
-            GUIPassword.setText(null);
-            GUIUsuario.setText(null);
+            uiPassword.setText(null);
+            uiUsuario.setText(null);
                 cont++;                             
         }
-            
-        // TODO add your handling code here:
-    }//GEN-LAST:event_GUISesionMouseClicked
-
-    private void GUIAgregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GUIAgregarMouseClicked
-         RegistroChofer TRegistro = new RegistroChofer();
-        TRegistro.setVisible(true);
-        this.setVisible(false);   
-
-// TODO add your handling code here:
-    }//GEN-LAST:event_GUIAgregarMouseClicked
+    }//GEN-LAST:event_uiInicioMouseClicked
 
     /**
      * @param args the command line arguments
@@ -239,11 +272,13 @@ public class IniciarSesion extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton GUIAgregar;
-    private javax.swing.JTextField GUIPassword;
-    private javax.swing.JButton GUISesion;
-    private javax.swing.JTextField GUIUsuario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton uiAgregar;
+    private javax.swing.JButton uiInicio;
+    private javax.swing.JPasswordField uiPassword;
+    private javax.swing.JTextField uiUsuario;
     // End of variables declaration//GEN-END:variables
 }
