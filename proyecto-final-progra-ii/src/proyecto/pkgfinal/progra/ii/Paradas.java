@@ -1,16 +1,18 @@
 package proyecto.pkgfinal.progra.ii;
 
 import java.util.*;
+import javax.swing.JOptionPane;
 
 public class Paradas {
 
     public static void main(String[] args) {
-        boolean esAdulto = true;     //esto es de la excepcion
-        if (esAdulto) {
+
+        boolean edadAdulto = true;     //esto es de la excepcion
+        if (edadAdulto) {
             try {
                 noCobrar();
             } catch (adultoException e) {
-                System.out.println(e);
+                JOptionPane.showMessageDialog(null, e);
 
             }
         }
@@ -42,16 +44,35 @@ public class Paradas {
     }
 
     private static void noCobrar() throws adultoException {  //poner excepcion que creamos
-        Scanner scanner = new Scanner(System.in);  //escaner para pedir edad
-        System.out.println("Digite la edad del pasajero");
-        int edad = Integer.parseInt(scanner.nextLine());
+        int opc1;
+        int pasaje = 600;
+        int edad = Integer.parseInt(JOptionPane.showInputDialog("Digite la edad del pasajero"));//pedir edad
         if (edad >= 65) {
-            System.out.println("Su pasaje es gratis");
+            throw new adultoException(edad);//se lanza la excepcion
+        } else if (edad <= 12) {
+            JOptionPane.showMessageDialog(null, "Menor de edad, Pasaje: " + pasaje / 2);
         } else {
-            throw new adultoException(edad);  //se lanza la excepcion
+        
+        JOptionPane.showMessageDialog(null, "Pasaje: " + pasaje);
+        }
+        opc1 = Integer.parseInt(JOptionPane.showInputDialog(null,
+                "******\n\n"
+                + "1.Ver otra edad\n"
+                + "2.Menu principal\n"
+                + "\n\nDigite su opción:"));
+        switch (opc1) {
+            case 1:
+                noCobrar();
+                break;
+            case 2:
+                PantallaPrincipal pp = new PantallaPrincipal();
+                break;
+            default: {
+                JOptionPane.showMessageDialog(null,
+                        "¡Opción incorrecta!");
 
+            }
         }
 
     }
-
 }
