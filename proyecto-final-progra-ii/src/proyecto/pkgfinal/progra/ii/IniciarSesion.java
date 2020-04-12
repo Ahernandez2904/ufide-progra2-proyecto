@@ -139,8 +139,7 @@ public class IniciarSesion extends javax.swing.JFrame {
             File fichero_entrada;
             File fichero_salida = null;
            
-            fichero_entrada = new File ("RegistroPersonal\\"+GUIUsuario.getText()+".txt");
-
+            fichero_entrada = new File (System.getProperty("user.dir")+"\\RegistroPersonal\\"+GUIUsuario.getText()+".txt");
             //Si no hay fichero de entrada no hacemos proceso de cálculo
             if (!fichero_entrada.exists()) {
                 System.out.println ("No existe el fichero de entrada especificado"); 

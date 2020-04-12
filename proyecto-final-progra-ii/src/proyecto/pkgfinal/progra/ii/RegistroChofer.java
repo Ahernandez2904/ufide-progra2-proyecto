@@ -180,7 +180,7 @@ public class RegistroChofer extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-         File archivo = new File("RegistroChofer\\"+GUICedula.getText()+".txt");
+        File archivo = new File(System.getProperty("user.dir")+"\\RegistroPersonal\\"+GUICedula.getText()+".txt");
         FileWriter w;
         BufferedWriter bw;
         PrintWriter wr;
