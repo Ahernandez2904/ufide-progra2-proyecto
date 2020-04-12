@@ -1,8 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+package proyecto.pkgfinal.progra.ii;
+
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -14,9 +12,7 @@ import javax.swing.JOptionPane;
  */
 public class IniciarSesion extends javax.swing.JFrame {
 
-    /**
-     * Creates new form IniciarSesion
-     */
+
     public IniciarSesion() {
         initComponents();
     }
@@ -181,7 +177,6 @@ public class IniciarSesion extends javax.swing.JFrame {
             fichero_entrada = new File ("RegistroChofer\\"+uiUsuario.getText()+".txt");
             fichero_entrada = new File (System.getProperty("user.dir")+"\\RegistroChofer\\"+uiUsuario.getText()+".txt");
 
-            //Si no hay fichero de entrada no hacemos proceso de cálculo
             if (!fichero_entrada.exists()) {
                 System.out.println ("No existe el fichero de entrada especificado"); 
             }
@@ -198,8 +193,6 @@ public class IniciarSesion extends javax.swing.JFrame {
                     contador++;
                 }
 
-
-
                 String [] datosDeEntradaArray = new String[contador];
 
                 for (int i=0; i<datosDeEntradaArray.length; i++){
@@ -212,10 +205,8 @@ public class IniciarSesion extends javax.swing.JFrame {
                     }
                     if(i==2){
                          contrasenna = datosDeEntradaArray[i];
-                    }
-                   
+                    }  
                 }
-
             }
         }catch (FileNotFoundException e) {System.out.println ("Se ha producido un error " +e + ". Revise argumentos y datos");}
         
@@ -227,8 +218,7 @@ public class IniciarSesion extends javax.swing.JFrame {
             jmenu.setVisible(true);
             IniciarSesion.this.dispose();
         }
-        else{
-            
+        else{    
             JOptionPane.showMessageDialog(null, "Error de credenciales");
             uiPassword.setText(null);
             uiUsuario.setText(null);

@@ -1,8 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+package proyecto.pkgfinal.progra.ii;
+
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -16,9 +14,6 @@ import javax.swing.JOptionPane;
  */
 public class RegistroChofer extends javax.swing.JFrame {
 
-    /**
-     * Creates new form RegistroChofer
-     */
     public RegistroChofer() {
         initComponents();
     }
@@ -155,7 +150,7 @@ public class RegistroChofer extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JToggleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JToggleActionPerformed
-    //File archivo = new File(System.getProperty("user.dir")+"\RegistroChofer\\"+uiCedula.getText()+".txt");
+  
     File archivo = new File(System.getProperty("user.dir")+"\\RegistroChofer\\"+uiCedula.getText()+".txt");
         FileWriter w;
         BufferedWriter bw;
@@ -166,30 +161,25 @@ public class RegistroChofer extends javax.swing.JFrame {
                || uiPassword.getText().isEmpty() || uiEdad.getText().isEmpty() )
               
          {
-             JOptionPane.showMessageDialog(null, "Todos los datos deben de estar completos");
+             JOptionPane.showMessageDialog(null, "Asegurese de que todos los campos esten completos");
          }else{
         
         try{
             w=new FileWriter(archivo);
             bw=new BufferedWriter(w);
             wr=new PrintWriter(bw);
-            // el rn es necesario para realizar  el salto de linea
             wr.write(uiNombre.getText()+" ");
             wr.append(uiApellido.getText()+ " "+"\r\n");
             wr.append(uiCedula.getText()+"\r\n");
             wr.append(uiPassword.getText() +"\r\n");
-          
-          
             wr.append(ComboHorario.getSelectedItem()+"\r\n");
-           
-            
             wr.close();
             bw.close();
 
         }catch(IOException e){
             System.out.println("Ha ocurrido un error" + e);
         }
-        JOptionPane.showMessageDialog(null, "Usuario creado exitosamente");
+        JOptionPane.showMessageDialog(null, "Nuevo usuario creado");
         IniciarSesion jfrm = new IniciarSesion();
         jfrm.setVisible(true);
         RegistroChofer.this.dispose();
