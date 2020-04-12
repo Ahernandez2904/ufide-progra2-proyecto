@@ -48,7 +48,8 @@ public class Paradas {
         int pasaje = 600;
         int edad = Integer.parseInt(JOptionPane.showInputDialog("Digite la edad del pasajero"));//pedir edad
         if (edad >= 65) {
-            throw new adultoException(edad);//se lanza la excepcion
+            try { throw new adultoException(edad);/*se lanza la excepcion*/ }
+            catch (adultoException e) { JOptionPane.showInputDialog(null,e); System.out.println(e); }
         } else if (edad <= 12) {
             JOptionPane.showMessageDialog(null, "Menor de edad, Pasaje: " + pasaje / 2);
         } else {
