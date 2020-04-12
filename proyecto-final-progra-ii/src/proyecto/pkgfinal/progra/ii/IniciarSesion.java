@@ -186,19 +186,19 @@ public class IniciarSesion extends javax.swing.JFrame {
                 System.out.println ("No existe el fichero de entrada especificado"); 
             }
 
-            else { //Sí existe un fichero de entrada y se procesa para su cálculo
-                //Extracción de datos del fichero de entrada ejemplo aprenderaprogramar.com
+            else { 
+                
                 Scanner scan1 = new Scanner (fichero_entrada);
                 ArrayList<String> datosDeEntrada = new ArrayList<String>();
                 int contador = 0;
-                //scan1.hasNext()
+                
                 while (contador<3){
                     String lineaExtraida = scan1.nextLine();
                     datosDeEntrada.add(lineaExtraida);
                     contador++;
                 }
 
-                //System.out.println("El número de líneas en el fichero de entrada es: " + contador);
+
 
                 String [] datosDeEntradaArray = new String[contador];
 
@@ -213,7 +213,7 @@ public class IniciarSesion extends javax.swing.JFrame {
                     if(i==2){
                          contrasenna = datosDeEntradaArray[i];
                     }
-                    //System.out.println("Mostrando línea en fichero " + (i+1) + ": " + datosDeEntradaArray[i]);
+                   
                 }
 
             }
@@ -222,7 +222,7 @@ public class IniciarSesion extends javax.swing.JFrame {
                 
         if(uiPassword.getText().equals(contrasenna)==true && uiUsuario.getText().equals(usuario)==true){
             JOptionPane.showMessageDialog(null, "Bienvenido(a) "+ nombre);
-          //Aqui va el enlace al menu
+         
             MenuPrincipal jmenu = new MenuPrincipal();
             jmenu.setVisible(true);
             IniciarSesion.this.dispose();
