@@ -1,19 +1,17 @@
 package proyecto.pkgfinal.progra.ii;
 
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
-/**
- *
- * @author Leonardo Vargas
- */
+
+
 public class IniciarSesion extends javax.swing.JFrame {
 
-
     public IniciarSesion() {
+        setLocationRelativeTo(null);
+        setTitle("Inicio de sesión");
         initComponents();
     }
 
@@ -150,8 +148,8 @@ public class IniciarSesion extends javax.swing.JFrame {
     }//GEN-LAST:event_uiAgregarActionPerformed
 
     private void uiUsuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_uiUsuarioKeyTyped
-               char c=evt.getKeyChar();
-        if(Character.isLetter(c)) {
+        char c = evt.getKeyChar();
+        if (Character.isLetter(c)) {
             getToolkit().beep();
             evt.consume();
             JOptionPane.showMessageDialog(null, "Ingrese su cedula");
@@ -161,73 +159,71 @@ public class IniciarSesion extends javax.swing.JFrame {
     private void uiAgregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_uiAgregarMouseClicked
         RegistroChofer RegistroC = new RegistroChofer();
         RegistroC.setVisible(true);
-        this.setVisible(false);   
+        this.setVisible(false);
     }//GEN-LAST:event_uiAgregarMouseClicked
 
     private void uiInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_uiInicioMouseClicked
-          String nombre = null;
+        String nombre = null;
         String apellido = null;
         int id;
         int edad;
         String genero = null;
-        String departamento= null;
-        String horario= null;
+        String departamento = null;
+        String horario = null;
         String usuario = null;
         String contrasenna = null;
         int cont = 0;
-         try{
+        try {
             File fichero_entrada;
             File fichero_salida = null;
-           
-            fichero_entrada = new File ("RegistroChofer\\"+uiUsuario.getText()+".txt");
-            fichero_entrada = new File (System.getProperty("user.dir")+"\\RegistroChofer\\"+uiUsuario.getText()+".txt");
+
+            //fichero_entrada = new File ("RegistroChofer\\"+uiUsuario.getText()+".txt");
+            fichero_entrada = new File(System.getProperty("user.dir") + "\\RegistroChofer\\" + uiUsuario.getText() + ".txt");
 
             if (!fichero_entrada.exists()) {
-                System.out.println ("No existe el fichero de entrada especificado"); 
-            }
+                System.out.println("No existe el fichero de entrada especificado");
+            } else {
 
-            else { 
-                
-                Scanner scan1 = new Scanner (fichero_entrada);
+                Scanner scan1 = new Scanner(fichero_entrada);
                 ArrayList<String> datosDeEntrada = new ArrayList<String>();
                 int contador = 0;
-                
-                while (contador<3){
+
+                while (contador < 3) {
                     String lineaExtraida = scan1.nextLine();
                     datosDeEntrada.add(lineaExtraida);
                     contador++;
                 }
 
-                String [] datosDeEntradaArray = new String[contador];
+                String[] datosDeEntradaArray = new String[contador];
 
-                for (int i=0; i<datosDeEntradaArray.length; i++){
+                for (int i = 0; i < datosDeEntradaArray.length; i++) {
                     datosDeEntradaArray[i] = datosDeEntrada.get(i);
-                    if(i==0){
-                         nombre = datosDeEntradaArray[i];
+                    if (i == 0) {
+                        nombre = datosDeEntradaArray[i];
                     }
-                    if(i==1){
-                         usuario = datosDeEntradaArray[i];
+                    if (i == 1) {
+                        usuario = datosDeEntradaArray[i];
                     }
-                    if(i==2){
-                         contrasenna = datosDeEntradaArray[i];
-                    }  
+                    if (i == 2) {
+                        contrasenna = datosDeEntradaArray[i];
+                    }
                 }
             }
-        }catch (FileNotFoundException e) {System.out.println ("Se ha producido un error " +e + ". Revise argumentos y datos");}
-        
-                
-        if(uiPassword.getText().equals(contrasenna)==true && uiUsuario.getText().equals(usuario)==true){
-            JOptionPane.showMessageDialog(null, "Bienvenido(a) "+ nombre);
-         
+        } catch (FileNotFoundException e) {
+            System.out.println("Se ha producido un error " + e + ". Revise argumentos y datos");
+        }
+
+        if (uiPassword.getText().equals(contrasenna) == true && uiUsuario.getText().equals(usuario) == true) {
+            JOptionPane.showMessageDialog(null, "Bienvenido(a) " + nombre);
+
             MenuPrincipal jmenu = new MenuPrincipal();
             jmenu.setVisible(true);
             IniciarSesion.this.dispose();
-        }
-        else{    
+        } else {
             JOptionPane.showMessageDialog(null, "Error de credenciales");
             uiPassword.setText(null);
             uiUsuario.setText(null);
-                cont++;                             
+            cont++;
         }
     }//GEN-LAST:event_uiInicioMouseClicked
 
