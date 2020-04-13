@@ -17,9 +17,36 @@ public class GUIFactura extends javax.swing.JFrame {
 
     String[] choferes = {"Andres Vargas", "Mariana Diaz", "Alvaro Matarrita", "Maria Gonzalez", "Michael Conejo"};
     String[] rutas = {"RT-789 / SJO - Tres Rios", "RT-456 / SJO - San Diego", "RT-231 / SJO - Concepcion"};
+    
 
     final File choferesFolder = new File(System.getProperty("user.dir") + "\\RegistroChofer");
     final File rutasFolder = new File(System.getProperty("user.dir") + "\\RegistroRuta");
+final File busesFolder = new File(System.getProperty("user.dir") + "\\RegistroBus");
+
+    public void iniciarComboboxBuses (final File folder) {
+            //for (int i = 0; i <= rutas.length - 1; i++) { uiComboID.addItem(rutas[i]); }
+        try {
+            for (final File fileEntry : folder.listFiles()) { // For que busca todos los archivos de la carpeta
+                if (fileEntry.isDirectory()) { //Si hay una carpeta, entra a revisarla
+                    iniciarComboboxChoferes(fileEntry); //lo inicia
+                } else {//sino sigue normal
+                    //System.out.println(fileEntry.getName()); //nombre del archivo
+                    //crea el fichero con la dirección del bus y el nombre del archivo
+                    File fichero_entrada = new File(folder + "\\" + fileEntry.getName());
+                    Scanner scan1 = new Scanner(fichero_entrada); //lo abre
+                    ArrayList<String> datosDeEntrada = new ArrayList<String>();
+                    String lineaExtraida = scan1.nextLine();//escanea la primera linea, donde esta el nombre
+                    //System.out.println(lineaExtraida); //imprime el nombre
+                    UIBus.addItem(lineaExtraida); //los agrega como items
+                }
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(GUIFactura.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+    }
+    
 
     public void iniciarComboboxRutas(final File folder) {
         //for (int i = 0; i <= rutas.length - 1; i++) { uiComboID.addItem(rutas[i]); }
@@ -75,6 +102,7 @@ public class GUIFactura extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         iniciarComboboxChoferes(choferesFolder);
         iniciarComboboxRutas(rutasFolder);
+        iniciarComboboxBuses(busesFolder);
         facturas = new LinkedList<>();
     }
 
