@@ -13,14 +13,16 @@ public class FacturasBuses implements Serializable{
     private int montoPasaje;
     private String IDRuta;
     private String Fecha;
+    private String Bus;
    
     
-    public FacturasBuses(String nombreChofer, String IDRuta, String EdadPasajero,int montoPasaje, String Fecha){
+    public FacturasBuses(String nombreChofer, String IDRuta, String EdadPasajero,int montoPasaje, String Fecha, String Bus){
       this.nombreChofer = nombreChofer;
       this.EdadPasajero = EdadPasajero;
       this.montoPasaje = montoPasaje;
       this.IDRuta = IDRuta;
       this.Fecha = Fecha;
+      this.Bus = Bus;
     }
     
      public String getNombrePasajero() {
@@ -70,9 +72,13 @@ public class FacturasBuses implements Serializable{
     public void setFecha(String Fecha) {
         this.Fecha = Fecha;
     }
-    
 
-    
-  
+    public String getBus() {
+        return Bus;
+    }
+
+    public void setBus(String Bus) {
+        this.Bus = Bus;
+    }
     
 }
