@@ -1,6 +1,5 @@
 package proyecto.pkgfinal.progra.ii;
 
-
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -16,6 +15,9 @@ public class RegistroBus extends javax.swing.JFrame {
 
     public RegistroBus() {
         initComponents();
+        setLocationRelativeTo(null);
+        setTitle("Regsitro de Bus");
+
     }
 
     /**
@@ -112,22 +114,25 @@ public class RegistroBus extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JToggleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JToggleActionPerformed
-  
-        File archivo = new File(System.getProperty("user.dir")+"\\RegistroBus\\"+UIPlaca.getText()+".txt");
-        FileWriter w; BufferedWriter bw; PrintWriter wr; String btn;
-        if(UIPlaca.getText().isEmpty() || UIMarca.getText().isEmpty()) {
+
+        File archivo = new File(System.getProperty("user.dir") + "\\RegistroBus\\" + UIPlaca.getText() + ".txt");
+        FileWriter w;
+        BufferedWriter bw;
+        PrintWriter wr;
+        String btn;
+        if (UIPlaca.getText().isEmpty() || UIMarca.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Asegurese de que todos los campos esten completos");
-        }else{
-            try{
-                w=new FileWriter(archivo);
-                bw=new BufferedWriter(w);
-                wr=new PrintWriter(bw);
-                wr.write(UIPlaca.getText()+" " + "\r\n");
-                wr.append(UIMarca.getText()+ " " + "\r\n");
+        } else {
+            try {
+                w = new FileWriter(archivo);
+                bw = new BufferedWriter(w);
+                wr = new PrintWriter(bw);
+                wr.write(UIPlaca.getText() + " " + "\r\n");
+                wr.append(UIMarca.getText() + " " + "\r\n");
                 wr.close();
                 bw.close();
 
-            }catch(IOException e){
+            } catch (IOException e) {
                 System.out.println("Ha ocurrido un error" + e);
             }
             JOptionPane.showMessageDialog(null, "Nuevo bus registrado");
@@ -138,9 +143,9 @@ public class RegistroBus extends javax.swing.JFrame {
     }//GEN-LAST:event_JToggleActionPerformed
 
     private void JButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonActionPerformed
-            MenuPrincipal jMenuP = new MenuPrincipal();
-            jMenuP.setVisible(true);
-            RegistroBus.this.dispose();
+        MenuPrincipal jMenuP = new MenuPrincipal();
+        jMenuP.setVisible(true);
+        RegistroBus.this.dispose();
     }//GEN-LAST:event_JButtonActionPerformed
 
     private void UIPlacaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UIPlacaActionPerformed
