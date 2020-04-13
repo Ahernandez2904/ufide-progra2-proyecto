@@ -174,7 +174,7 @@ public class IniciarSesion extends javax.swing.JFrame {
             File fichero_entrada;
             File fichero_salida = null;
            
-            fichero_entrada = new File ("RegistroChofer\\"+uiUsuario.getText()+".txt");
+            //fichero_entrada = new File ("RegistroChofer\\"+uiUsuario.getText()+".txt");
             fichero_entrada = new File (System.getProperty("user.dir")+"\\RegistroChofer\\"+uiUsuario.getText()+".txt");
 
             if (!fichero_entrada.exists()) {
