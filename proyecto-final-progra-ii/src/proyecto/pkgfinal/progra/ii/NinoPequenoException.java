@@ -15,11 +15,10 @@ import javax.swing.JOptionPane;
  */
 public class NinoPequenoException extends Exception{
   
-    private int EdadNino;
-    private int precioPasaje = 600;
+    private int precioPasaje = 0;
     
-    public NinoPequenoException(int EdadNino){
-        precioPasaje = (precioPasaje/2);
+    public NinoPequenoException(int pasaje){
+        precioPasaje = (pasaje/2);
     }
     
     @Override

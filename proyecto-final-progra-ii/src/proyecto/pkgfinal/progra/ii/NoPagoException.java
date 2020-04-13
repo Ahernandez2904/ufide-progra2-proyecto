@@ -11,16 +11,19 @@ public class NoPagoException extends Exception {
     private int dineroRecaudadoLocal;
     private int pasajeLocal;
     
-    public NoPagoException(int dineroRecaudado, int pasaje){
-        nuevoTotal = dineroRecaudado - pasaje;
+    public NoPagoException(int pasaje){
         pasajeLocal = pasaje;
-        dineroRecaudadoLocal = dineroRecaudado;
+        dineroRecaudadoLocal = 0;
+    }
+
+    NoPagoException() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     @Override
     public String toString(){
-        return "No se le rebajará el dinero al chofér. Nuevo total recaudado: " + nuevoTotal
-                + "Total anterior recaudado: " + dineroRecaudadoLocal + "Pasaje:" + pasajeLocal;
+        return "No se le rebajará el dinero al chofér. \n\nNuevo total recaudado: " + dineroRecaudadoLocal
+                 + "\nPasaje:" + pasajeLocal;
     }
     
 }

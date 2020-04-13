@@ -133,6 +133,7 @@ final File busesFolder = new File(System.getProperty("user.dir") + "\\RegistroBu
         jLabel3 = new javax.swing.JLabel();
         UIBus = new javax.swing.JComboBox<>();
         uiButtonCargarFactura1 = new javax.swing.JButton();
+        uiNoPago = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Facturas");
@@ -225,6 +226,13 @@ final File busesFolder = new File(System.getProperty("user.dir") + "\\RegistroBu
             }
         });
 
+        uiNoPago.setText("No Pago");
+        uiNoPago.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                uiNoPagoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -243,18 +251,23 @@ final File busesFolder = new File(System.getProperty("user.dir") + "\\RegistroBu
                             .addComponent(uiComboEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(24, 24, 24)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(uiTXTfecha, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 86, Short.MAX_VALUE))
+                                        .addGap(0, 0, Short.MAX_VALUE))
                                     .addComponent(uiComboID, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
-                                    .addComponent(UIBus, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addGap(18, 18, 18))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(uiTXTfecha, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(104, 104, 104)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(uiNoPago, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
+                                .addComponent(UIBus, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -270,19 +283,20 @@ final File busesFolder = new File(System.getProperty("user.dir") + "\\RegistroBu
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(uiComboNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(uiComboID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(UIBus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(uiButtonAgregarRegistro))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(uiComboNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(uiComboID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(UIBus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6)
                             .addComponent(jLabel5))
@@ -290,13 +304,11 @@ final File busesFolder = new File(System.getProperty("user.dir") + "\\RegistroBu
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(uiComboEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(uiTXTfecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addComponent(uiButtonAgregarRegistro)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(uiNoPago)
                         .addComponent(uiButtonVerFacActual)))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 330, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 327, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(uiButtonGuardarFactura)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -321,34 +333,38 @@ final File busesFolder = new File(System.getProperty("user.dir") + "\\RegistroBu
     }// </editor-fold>//GEN-END:initComponents
 
     private void uiButtonAgregarRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uiButtonAgregarRegistroActionPerformed
-
         String nombreChofer = String.valueOf(uiComboNombre.getSelectedItem());
         String IDruta = String.valueOf(uiComboID.getSelectedItem());
-        String Bus = String.valueOf(UIBus.getSelectedItem());
+        String bus = String.valueOf(UIBus.getSelectedItem());
 
         String edadPasajero = null;
-
         int montoPasaje = 0;
-        if (uiComboEdad.getSelectedIndex() == 0) {
-            montoPasaje = 300; //se aplica un descuento por ser menor
-            edadPasajero = "Menor de Edad";
-        }
-        if (uiComboEdad.getSelectedIndex() == 1) {
-            montoPasaje = 600;   //se cobra normal porque es mayor de edad
-            edadPasajero = "Mayor de Edad";
-        }
-        if (uiComboEdad.getSelectedIndex() == 2) {
-            montoPasaje = 0; //se aplica un descuento total y se asigna a la cuenta de oro
-            edadPasajero = "Ciudadano de Oro";
-        }
-
+        
+        try{
+            if (uiComboEdad.getSelectedIndex() == 0) {
+                montoPasaje = 300; //se aplica un descuento por ser menor
+                edadPasajero = "Menor de Edad";
+                throw new NinoPequenoException(montoPasaje);
+            }
+            if (uiComboEdad.getSelectedIndex() == 1) {
+                montoPasaje = 600;   //se cobra normal porque es mayor de edad
+                edadPasajero = "Mayor de Edad";
+            }
+            if (uiComboEdad.getSelectedIndex() == 2) {
+                montoPasaje = 0; //se aplica un descuento total y se asigna a la cuenta de oro
+                edadPasajero = "Ciudadano de Oro";
+                throw new adultoException(montoPasaje);
+            }
+        }catch (adultoException e) { JOptionPane.showMessageDialog(null, e);
+        }catch (NinoPequenoException e) { JOptionPane.showMessageDialog(null, e); }
         String fecha = uiTXTfecha.getText();
 
         try { //valida fecha
             SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
             formatoFecha.setLenient(false);
             formatoFecha.parse(fecha);
-            facturas.add(new FacturasBuses(nombreChofer, IDruta, edadPasajero, montoPasaje, fecha, Bus));
+            facturas.add(new FacturasBuses(nombreChofer, IDruta, edadPasajero, montoPasaje, fecha, bus));
+            JOptionPane.showMessageDialog(null, "Factura agregada");
         } catch (ParseException e) {
             System.out.println(e); //salta si la fecha esta mal
             JOptionPane.showMessageDialog(null, "Utilice el formato fecha dd/MM/yyyy");
@@ -363,14 +379,16 @@ final File busesFolder = new File(System.getProperty("user.dir") + "\\RegistroBu
             }else{
                 JOptionPane.showMessageDialog(null, "Porfavor rellene el espacio de 'fecha' para continuar");
             }
-         */
+        */
+        
+        
         uiTXTfecha.setText("");
 
         //String fecha = uiTXTfecha.getText();
-        //facturas.add (new FacturasBuses(nombreChofer, IDruta, edadPasajero, montoPasaje, fecha));
+        //facturas.add (new FacturasBuses(nombreChofer, IDruta, edadPasajero, montoPasaje, fecha,bus));
         //uiTXTfecha.setText(""); 
     }//GEN-LAST:event_uiButtonAgregarRegistroActionPerformed
-
+    
     private void uiButtonVerFacActualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uiButtonVerFacActualActionPerformed
         for (FacturasBuses actual : facturas) {
 
@@ -448,6 +466,26 @@ final File busesFolder = new File(System.getProperty("user.dir") + "\\RegistroBu
             GUIFactura.this.dispose();
     }//GEN-LAST:event_uiButtonCargarFactura1ActionPerformed
 
+    private void uiNoPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uiNoPagoActionPerformed
+        try{ 
+            String edadPasajero = null;
+            int montoPasaje = 0;
+            if (uiComboEdad.getSelectedIndex() == 0) {
+                montoPasaje = 300; //se aplica un descuento por ser menor
+                edadPasajero = "Menor de Edad";
+            }
+            if (uiComboEdad.getSelectedIndex() == 1) {
+                montoPasaje = 600;   //se cobra normal porque es mayor de edad
+                edadPasajero = "Mayor de Edad";
+            }
+            if (uiComboEdad.getSelectedIndex() == 2) {
+                montoPasaje = 0; //se aplica un descuento total y se asigna a la cuenta de oro
+                edadPasajero = "Ciudadano de Oro";
+            }
+            throw new NoPagoException(montoPasaje);
+        } catch(NoPagoException e){JOptionPane.showMessageDialog(null, e); }
+    }//GEN-LAST:event_uiNoPagoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -501,6 +539,7 @@ final File busesFolder = new File(System.getProperty("user.dir") + "\\RegistroBu
     private javax.swing.JComboBox<String> uiComboID;
     private javax.swing.JComboBox<String> uiComboNombre;
     private javax.swing.JTextArea uiLista;
+    private javax.swing.JButton uiNoPago;
     private javax.swing.JTextField uiTXTfecha;
     // End of variables declaration//GEN-END:variables
 }
