@@ -122,6 +122,9 @@
           <Image iconType="2" name="C:\Users\e1287240\Pictures\Java Netbeans\iconfinder_Artboard_10_3915333.png"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton3">
       <Properties>

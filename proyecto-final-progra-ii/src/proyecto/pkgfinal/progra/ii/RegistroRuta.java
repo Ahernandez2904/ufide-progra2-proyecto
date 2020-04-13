@@ -68,18 +68,20 @@ public class RegistroRuta extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(21, 21, 21)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(guiNombre)
-                            .addComponent(ComboHorario, 0, 198, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(149, 149, 149)
-                        .addComponent(JToggle))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(160, 160, 160)
-                        .addComponent(JButton)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(guiNombre)
+                                    .addComponent(ComboHorario, 0, 198, Short.MAX_VALUE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(149, 149, 149)
+                                .addComponent(JButton))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(137, 137, 137)
+                                .addComponent(JToggle)))))
                 .addContainerGap(70, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -95,11 +97,11 @@ public class RegistroRuta extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(ComboHorario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
+                .addGap(30, 30, 30)
                 .addComponent(JToggle)
-                .addGap(29, 29, 29)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(JButton)
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addContainerGap(80, Short.MAX_VALUE))
         );
 
         pack();
@@ -130,15 +132,16 @@ public class RegistroRuta extends javax.swing.JFrame {
                 System.out.println("Ha ocurrido un error" + e);
             }
             JOptionPane.showMessageDialog(null, "Nueva Ruta creada");
-            PantallaPrincipal pp = new PantallaPrincipal();
+            MenuPrincipal pp = new MenuPrincipal();
             pp.setVisible(true);
             RegistroRuta.this.dispose();
         }
     }//GEN-LAST:event_JToggleActionPerformed
 
     private void JButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonActionPerformed
-        PantallaPrincipal pp = new PantallaPrincipal();
-        pp.setVisible(true);
+            MenuPrincipal jMenuP = new MenuPrincipal();
+            jMenuP.setVisible(true);
+            RegistroRuta.this.dispose();
     }//GEN-LAST:event_JButtonActionPerformed
 
     public static void main(String args[]) {

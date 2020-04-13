@@ -43,6 +43,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jLabel1.setText("Agregar Buses");
 
         jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\e1287240\\Pictures\\Java Netbeans\\iconfinder_Artboard_10_3915333.png")); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton3.setIcon(new javax.swing.ImageIcon("C:\\Users\\e1287240\\Pictures\\Java Netbeans\\iconfinder_General_-_Office_35_1471085.png")); // NOI18N
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -140,10 +145,16 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-            RegistroChofer jVolverSesion = new RegistroChofer();
+            IniciarSesion jVolverSesion = new IniciarSesion();
             jVolverSesion.setVisible(true);
             MenuPrincipal.this.dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+            RegistroRuta jRegistrarRuta = new RegistroRuta();
+            jRegistrarRuta.setVisible(true);
+            MenuPrincipal.this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
