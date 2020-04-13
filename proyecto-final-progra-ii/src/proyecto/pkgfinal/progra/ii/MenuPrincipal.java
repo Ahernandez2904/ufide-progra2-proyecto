@@ -1,21 +1,12 @@
 package proyecto.pkgfinal.progra.ii;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
-/**
- *
- * @author Leonardo Vargas
- */
 public class MenuPrincipal extends javax.swing.JFrame {
 
-    /**
-     * Creates new form MenuPrincipal
-     */
+
     public MenuPrincipal() {
+        setLocationRelativeTo(null);
+        setTitle("Menú");
         initComponents();
     }
 
@@ -47,7 +38,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
- 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables

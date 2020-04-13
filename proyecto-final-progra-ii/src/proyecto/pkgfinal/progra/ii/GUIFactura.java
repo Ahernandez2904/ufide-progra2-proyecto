@@ -1,6 +1,5 @@
 package proyecto.pkgfinal.progra.ii;
 
-
 import javax.swing.*;
 import java.util.*;
 import java.io.*;
@@ -15,14 +14,14 @@ public class GUIFactura extends javax.swing.JFrame {
     //int CuentaDeOro = 0; //Esta es la cuenta de todos los ciudadanos de oro en el dia y que sera financiada por la empresa
     //int CantidadNinos = 0; //Conteo para ver cuantos Ninos ingresaron en el dia
     //int CantidadAdultos = 0; //Conteo para ver cuantos Adultos ingresaron en el dia
- 
-    String[] choferes = {"Andres Vargas","Mariana Diaz","Alvaro Matarrita","Maria Gonzalez","Michael Conejo"};
-    String[] rutas = {"RT-789 / SJO - Tres Rios","RT-456 / SJO - San Diego","RT-231 / SJO - Concepcion"};
-    
-    final File choferesFolder = new File(System.getProperty("user.dir")+"\\RegistroChofer");
-    final File rutasFolder = new File(System.getProperty("user.dir")+"\\RegistroRuta");
-    
-    public void iniciarComboboxRutas(final File folder){
+
+    String[] choferes = {"Andres Vargas", "Mariana Diaz", "Alvaro Matarrita", "Maria Gonzalez", "Michael Conejo"};
+    String[] rutas = {"RT-789 / SJO - Tres Rios", "RT-456 / SJO - San Diego", "RT-231 / SJO - Concepcion"};
+
+    final File choferesFolder = new File(System.getProperty("user.dir") + "\\RegistroChofer");
+    final File rutasFolder = new File(System.getProperty("user.dir") + "\\RegistroRuta");
+
+    public void iniciarComboboxRutas(final File folder) {
         //for (int i = 0; i <= rutas.length - 1; i++) { uiComboID.addItem(rutas[i]); }
         try {
             for (final File fileEntry : folder.listFiles()) { // For que busca todos los archivos de la carpeta
@@ -31,18 +30,21 @@ public class GUIFactura extends javax.swing.JFrame {
                 } else {//sino sigue normal
                     //System.out.println(fileEntry.getName()); //nombre del archivo
                     //crea el fichero con la dirección de ruta y el nombre del archivo
-                    File fichero_entrada = new File (folder + "\\" + fileEntry.getName()); 
-                    Scanner scan1 = new Scanner (fichero_entrada); //lo abre
+                    File fichero_entrada = new File(folder + "\\" + fileEntry.getName());
+                    Scanner scan1 = new Scanner(fichero_entrada); //lo abre
                     ArrayList<String> datosDeEntrada = new ArrayList<String>();
                     String lineaExtraida = scan1.nextLine();//escanea la primera linea, donde esta el nombre
                     //System.out.println(lineaExtraida); //imprime el nombre
                     uiComboID.addItem(lineaExtraida); //los agrega como items
                 }
             }
-        } catch (FileNotFoundException ex) { Logger.getLogger(GUIFactura.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (Exception ex) { System.out.println(ex); }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(GUIFactura.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
     }
-    
+
     public void iniciarComboboxChoferes(final File folder) {
         try {
             for (final File fileEntry : folder.listFiles()) { // For que busca todos los archivos de la carpeta
@@ -51,21 +53,26 @@ public class GUIFactura extends javax.swing.JFrame {
                 } else {//sino sigue normal
                     //System.out.println(fileEntry.getName()); //nombre del archivo
                     //crea el fichero con la dirección de chofer y el nombre del archivo
-                    File fichero_entrada = new File (folder + "\\" + fileEntry.getName()); 
-                    Scanner scan1 = new Scanner (fichero_entrada); //lo abre
+                    File fichero_entrada = new File(folder + "\\" + fileEntry.getName());
+                    Scanner scan1 = new Scanner(fichero_entrada); //lo abre
                     ArrayList<String> datosDeEntrada = new ArrayList<String>();
                     String lineaExtraida = scan1.nextLine();//escanea la primera linea, donde esta el nombre
                     //System.out.println(lineaExtraida); //imprime el nombre
                     uiComboNombre.addItem(lineaExtraida); //los agrega como items
                 }
             }
-        } catch (FileNotFoundException ex) { Logger.getLogger(GUIFactura.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (Exception ex) { System.out.println(ex); }
-        
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(GUIFactura.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+
     }
-    
+
     public GUIFactura() {
         initComponents();
+        setTitle("Factura");
+        setLocationRelativeTo(null);
         iniciarComboboxChoferes(choferesFolder);
         iniciarComboboxRutas(rutasFolder);
         facturas = new LinkedList<>();
@@ -250,46 +257,47 @@ public class GUIFactura extends javax.swing.JFrame {
 
         String nombreChofer = String.valueOf(uiComboNombre.getSelectedItem());
         String IDruta = String.valueOf(uiComboID.getSelectedItem());
-           
-              
+
         String edadPasajero = null;
-        
+
         int montoPasaje = 0;
-            if (uiComboEdad.getSelectedIndex() == 0){
-              montoPasaje = 300; //se aplica un descuento por ser menor
-              edadPasajero = "Menor de Edad";
-            }
-            if(uiComboEdad.getSelectedIndex() == 1){
-              montoPasaje = 600;   //se cobra normal porque es mayor de edad
-              edadPasajero = "Mayor de Edad";
-            }
-            if(uiComboEdad.getSelectedIndex() == 2){
-                montoPasaje = 0; //se aplica un descuento total y se asigna a la cuenta de oro
-                edadPasajero = "Ciudadano de Oro";
-            }   
-            
-            String fecha = uiTXTfecha.getText();
-            
-            try { //valida fecha
-                SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
-                formatoFecha.setLenient(false);
-                formatoFecha.parse(fecha);
-                facturas.add (new FacturasBuses(nombreChofer, IDruta, edadPasajero, montoPasaje, fecha));
-            } catch (ParseException e) { System.out.println(e); //salta si la fecha esta mal
-                JOptionPane.showMessageDialog(null, "Utilice el formato fecha dd/MM/yyyy"); 
-            } catch (Exception e) { System.out.println(e); //salta los demás errores
-                JOptionPane.showMessageDialog(null, "Porfavor rellene el espacio de 'fecha' para continuar"); 
-            }
-            /*
+        if (uiComboEdad.getSelectedIndex() == 0) {
+            montoPasaje = 300; //se aplica un descuento por ser menor
+            edadPasajero = "Menor de Edad";
+        }
+        if (uiComboEdad.getSelectedIndex() == 1) {
+            montoPasaje = 600;   //se cobra normal porque es mayor de edad
+            edadPasajero = "Mayor de Edad";
+        }
+        if (uiComboEdad.getSelectedIndex() == 2) {
+            montoPasaje = 0; //se aplica un descuento total y se asigna a la cuenta de oro
+            edadPasajero = "Ciudadano de Oro";
+        }
+
+        String fecha = uiTXTfecha.getText();
+
+        try { //valida fecha
+            SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
+            formatoFecha.setLenient(false);
+            formatoFecha.parse(fecha);
+            facturas.add(new FacturasBuses(nombreChofer, IDruta, edadPasajero, montoPasaje, fecha));
+        } catch (ParseException e) {
+            System.out.println(e); //salta si la fecha esta mal
+            JOptionPane.showMessageDialog(null, "Utilice el formato fecha dd/MM/yyyy");
+        } catch (Exception e) {
+            System.out.println(e); //salta los demás errores
+            JOptionPane.showMessageDialog(null, "Porfavor rellene el espacio de 'fecha' para continuar");
+        }
+        /*
             if (fecha.isEmpty() == false ){
                 facturas.add (new FacturasBuses(nombreChofer, IDruta, edadPasajero, montoPasaje, fecha));
                 System.out.println(nombreChofer + IDruta + edadPasajero + montoPasaje + fecha);
             }else{
                 JOptionPane.showMessageDialog(null, "Porfavor rellene el espacio de 'fecha' para continuar");
             }
- */
-        uiTXTfecha.setText(""); 
-          
+         */
+        uiTXTfecha.setText("");
+
         //String fecha = uiTXTfecha.getText();
         //facturas.add (new FacturasBuses(nombreChofer, IDruta, edadPasajero, montoPasaje, fecha));
         //uiTXTfecha.setText(""); 
@@ -297,28 +305,26 @@ public class GUIFactura extends javax.swing.JFrame {
 
     private void uiButtonVerFacActualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uiButtonVerFacActualActionPerformed
         for (FacturasBuses actual : facturas) {
-                           
-             uiLista.append("Chofer: "+actual.getNombreChofer() + "       ||       " + "Ruta: "+actual.getIDRuta() + 
-                            "      ||      " + "Edad: "+ actual.getEdadPasajero() + "       ||       " +
-                    "Pasaje: "+ actual.getMontoPasaje() + "                  ||       "  +  "Fecha:  "+ actual.getFecha() + "\n");
-              
+
+            uiLista.append("Chofer: " + actual.getNombreChofer() + "       ||       " + "Ruta: " + actual.getIDRuta()
+                    + "      ||      " + "Edad: " + actual.getEdadPasajero() + "       ||       "
+                    + "Pasaje: " + actual.getMontoPasaje() + "                  ||       " + "Fecha:  " + actual.getFecha() + "\n");
+
         }
-        
-        
-        
-          /*  uiLista.append("El total a financiar de la cuenta de adultos mayores es de: " + CuentaDeOro +" colones\n" +
+
+        /*  uiLista.append("El total a financiar de la cuenta de adultos mayores es de: " + CuentaDeOro +" colones\n" +
                            "La cantidad de Niños que ingreso fue: " + CantidadNinos + "Niños\n"+ 
                            "La cantidad de Adultos que ingreso fue: " + CantidadAdultos + "Adultos\n");  
-          */
+         */
 
     }//GEN-LAST:event_uiButtonVerFacActualActionPerformed
 
     private void uiButtonGuardarFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uiButtonGuardarFacturaActionPerformed
         JFileChooser fileDeFactura = new JFileChooser();
         int decision = fileDeFactura.showSaveDialog(null);
-        
-        if (decision == JFileChooser.APPROVE_OPTION){
-            File destino = fileDeFactura.getSelectedFile(); 
+
+        if (decision == JFileChooser.APPROVE_OPTION) {
+            File destino = fileDeFactura.getSelectedFile();
             try {
                 FileOutputStream fos = new FileOutputStream(destino);
                 ObjectOutputStream oos = new ObjectOutputStream(fos);
@@ -326,32 +332,32 @@ public class GUIFactura extends javax.swing.JFrame {
                 oos.flush();
                 oos.close();
             } catch (IOException ex) {
-               uiLista.append("ERROR: " +ex);
+                uiLista.append("ERROR: " + ex);
             }
         }
     }//GEN-LAST:event_uiButtonGuardarFacturaActionPerformed
 
     private void uiButtonCargarFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uiButtonCargarFacturaActionPerformed
-         JFileChooser cargarFactura = new JFileChooser();
+        JFileChooser cargarFactura = new JFileChooser();
         int decision = cargarFactura.showOpenDialog(null);
-        if(decision == JFileChooser.APPROVE_OPTION){
+        if (decision == JFileChooser.APPROVE_OPTION) {
             File destino = cargarFactura.getSelectedFile();
             try {
                 FileInputStream fis = new FileInputStream(destino);
                 ObjectInputStream ois = new ObjectInputStream(fis);
-                facturas = (LinkedList<FacturasBuses>)ois.readObject();
-            } catch (IOException|ClassNotFoundException e) {
-                System.out.println("ERROR: "+ e);
+                facturas = (LinkedList<FacturasBuses>) ois.readObject();
+            } catch (IOException | ClassNotFoundException e) {
+                System.out.println("ERROR: " + e);
             }
         }
     }//GEN-LAST:event_uiButtonCargarFacturaActionPerformed
 
     private void uiComboEdadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uiComboEdadActionPerformed
-        
+
     }//GEN-LAST:event_uiComboEdadActionPerformed
 
     private void uiComboNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uiComboNombreActionPerformed
-      
+
     }//GEN-LAST:event_uiComboNombreActionPerformed
 
     private void uiComboIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uiComboIDActionPerformed

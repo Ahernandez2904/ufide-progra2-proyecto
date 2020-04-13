@@ -1,6 +1,5 @@
 package proyecto.pkgfinal.progra.ii;
 
-
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -15,6 +14,8 @@ import javax.swing.JOptionPane;
 public class RegistroChofer extends javax.swing.JFrame {
 
     public RegistroChofer() {
+        setLocationRelativeTo(null);
+        setTitle("Registro de Chofer");
         initComponents();
     }
 
@@ -150,40 +151,38 @@ public class RegistroChofer extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JToggleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JToggleActionPerformed
-  
-    File archivo = new File(System.getProperty("user.dir")+"\\RegistroChofer\\"+uiCedula.getText()+".txt");
+
+        File archivo = new File(System.getProperty("user.dir") + "\\RegistroChofer\\" + uiCedula.getText() + ".txt");
         FileWriter w;
         BufferedWriter bw;
         PrintWriter wr;
         String btn;
 
-         if(uiNombre.getText().isEmpty() || uiApellido.getText().isEmpty() || uiCedula.getText().isEmpty()
-               || uiPassword.getText().isEmpty() || uiEdad.getText().isEmpty() )
-              
-         {
-             JOptionPane.showMessageDialog(null, "Asegurese de que todos los campos esten completos");
-         }else{
-        
-        try{
-            w=new FileWriter(archivo);
-            bw=new BufferedWriter(w);
-            wr=new PrintWriter(bw);
-            wr.write(uiNombre.getText()+" ");
-            wr.append(uiApellido.getText()+ " "+"\r\n");
-            wr.append(uiCedula.getText()+"\r\n");
-            wr.append(uiPassword.getText() +"\r\n");
-            wr.append(ComboHorario.getSelectedItem()+"\r\n");
-            wr.close();
-            bw.close();
+        if (uiNombre.getText().isEmpty() || uiApellido.getText().isEmpty() || uiCedula.getText().isEmpty()
+                || uiPassword.getText().isEmpty() || uiEdad.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Asegurese de que todos los campos esten completos");
+        } else {
 
-        }catch(IOException e){
-            System.out.println("Ha ocurrido un error" + e);
+            try {
+                w = new FileWriter(archivo);
+                bw = new BufferedWriter(w);
+                wr = new PrintWriter(bw);
+                wr.write(uiNombre.getText() + " ");
+                wr.append(uiApellido.getText() + " " + "\r\n");
+                wr.append(uiCedula.getText() + "\r\n");
+                wr.append(uiPassword.getText() + "\r\n");
+                wr.append(ComboHorario.getSelectedItem() + "\r\n");
+                wr.close();
+                bw.close();
+
+            } catch (IOException e) {
+                System.out.println("Ha ocurrido un error" + e);
+            }
+            JOptionPane.showMessageDialog(null, "Nuevo usuario creado");
+            IniciarSesion jfrm = new IniciarSesion();
+            jfrm.setVisible(true);
+            RegistroChofer.this.dispose();
         }
-        JOptionPane.showMessageDialog(null, "Nuevo usuario creado");
-        IniciarSesion jfrm = new IniciarSesion();
-        jfrm.setVisible(true);
-        RegistroChofer.this.dispose();
-         }
     }//GEN-LAST:event_JToggleActionPerformed
 
     private void JButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonActionPerformed

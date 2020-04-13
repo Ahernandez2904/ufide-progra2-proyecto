@@ -11,6 +11,8 @@ public class RegistroRuta extends javax.swing.JFrame {
 
     public RegistroRuta() {
         initComponents();
+        setLocationRelativeTo(null);
+        setTitle("Registro de Ruta");
     }
 
     /**
