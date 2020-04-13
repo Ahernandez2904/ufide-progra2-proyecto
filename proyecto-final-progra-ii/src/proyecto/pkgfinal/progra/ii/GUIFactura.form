@@ -25,7 +25,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="1" max="32767" attributes="0"/>
+          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -50,8 +50,15 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
+<<<<<<< HEAD
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jScrollPane1" alignment="1" max="32767" attributes="0"/>
+=======
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="uiButtonCargarFactura" max="32767" attributes="0"/>
+                      <Component id="uiButtonGuardarFactura" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
+>>>>>>> a20af44a397cf2a68384ea376616edde5bc9a9ab
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel1" alignment="0" min="-2" pref="138" max="-2" attributes="0"/>
@@ -59,41 +66,70 @@
                               <Component id="jLabel5" alignment="0" min="-2" pref="123" max="-2" attributes="0"/>
                               <Component id="uiComboEdad" alignment="0" min="-2" pref="154" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jLabel2" alignment="0" min="-2" pref="123" max="-2" attributes="0"/>
-                              <Component id="jLabel6" min="-2" pref="79" max="-2" attributes="0"/>
-                              <Component id="uiComboID" max="32767" attributes="0"/>
-                              <Component id="uiTXTfecha" alignment="0" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="uiButtonVerFacActual" pref="444" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabel6" min="-2" pref="79" max="-2" attributes="0"/>
+                                      <Component id="uiTXTfecha" min="-2" pref="123" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Component id="jLabel2" min="-2" pref="123" max="-2" attributes="0"/>
+                                          <EmptySpace min="0" pref="86" max="32767" attributes="0"/>
+                                      </Group>
+                                      <Component id="uiComboID" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="UIBus" min="-2" pref="132" max="-2" attributes="0"/>
+                                      <Component id="jLabel3" min="-2" pref="123" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="uiButtonVerFacActual" pref="147" max="32767" attributes="0"/>
                               <Component id="uiButtonAgregarRegistro" max="32767" attributes="0"/>
                           </Group>
                       </Group>
+<<<<<<< HEAD
                       <Component id="uiButtonCargarFactura" alignment="0" max="32767" attributes="0"/>
                       <Component id="uiButtonGuardarFactura" alignment="1" max="32767" attributes="0"/>
                       <Component id="jButton1" alignment="0" max="32767" attributes="0"/>
+=======
+>>>>>>> a20af44a397cf2a68384ea376616edde5bc9a9ab
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="uiButtonAgregarRegistro" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                          <Component id="uiButtonVerFacActual" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="uiComboNombre" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="uiComboID" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="UIBus" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -105,11 +141,15 @@
                               <Component id="uiComboEdad" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="uiTXTfecha" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
+<<<<<<< HEAD
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="uiButtonAgregarRegistro" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="uiButtonVerFacActual" min="-2" max="-2" attributes="0"/>
+=======
+                          <EmptySpace type="separate" max="32767" attributes="0"/>
+>>>>>>> a20af44a397cf2a68384ea376616edde5bc9a9ab
                       </Group>
                   </Group>
                   <EmptySpace pref="18" max="32767" attributes="0"/>
@@ -255,6 +295,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="uiTXTfecha">
         </Component>
+<<<<<<< HEAD
         <Component class="javax.swing.JButton" name="jButton1">
           <Properties>
             <Property name="text" type="java.lang.String" value="Volver al Menu Principal"/>
@@ -262,6 +303,30 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
           </Events>
+=======
+        <Component class="javax.swing.JComboBox" name="UIBus">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="0"/>
+            </Property>
+            <Property name="autoscrolls" type="boolean" value="true"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="UIBusActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel3">
+          <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="66" green="66" red="0" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="ID del bus"/>
+            <Property name="toolTipText" type="java.lang.String" value=""/>
+          </Properties>
+>>>>>>> a20af44a397cf2a68384ea376616edde5bc9a9ab
         </Component>
       </SubComponents>
     </Container>
