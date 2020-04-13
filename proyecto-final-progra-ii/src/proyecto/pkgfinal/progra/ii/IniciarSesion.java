@@ -54,6 +54,11 @@ public class IniciarSesion extends javax.swing.JFrame {
                 uiInicioMouseClicked(evt);
             }
         });
+        uiInicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                uiInicioActionPerformed(evt);
+            }
+        });
 
         uiAgregar.setText("Agregar");
         uiAgregar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -225,6 +230,10 @@ public class IniciarSesion extends javax.swing.JFrame {
                 cont++;                             
         }
     }//GEN-LAST:event_uiInicioMouseClicked
+
+    private void uiInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uiInicioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_uiInicioActionPerformed
 
     /**
      * @param args the command line arguments

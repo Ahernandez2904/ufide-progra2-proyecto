@@ -66,7 +66,7 @@ public class Paradas {
                 noCobrar();
                 break;
             case 2:
-                PantallaPrincipal pp = new PantallaPrincipal();
+                MenuPrincipal pp = new MenuPrincipal();
                 break;
             default: {
                 JOptionPane.showMessageDialog(null,
