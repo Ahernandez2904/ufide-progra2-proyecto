@@ -138,9 +138,9 @@ public class RegistroBus extends javax.swing.JFrame {
     }//GEN-LAST:event_JToggleActionPerformed
 
     private void JButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonActionPerformed
-        IniciarSesion login = new IniciarSesion();
-        login.setVisible(true);
-        this.dispose();
+            MenuPrincipal jMenuP = new MenuPrincipal();
+            jMenuP.setVisible(true);
+            RegistroBus.this.dispose();
     }//GEN-LAST:event_JButtonActionPerformed
 
     private void UIPlacaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UIPlacaActionPerformed
