@@ -136,7 +136,7 @@ public class RegistroBus extends javax.swing.JFrame {
                 System.out.println("Ha ocurrido un error" + e);
             }
             JOptionPane.showMessageDialog(null, "Nuevo bus registrado");
-            IniciarSesion jfrm = new IniciarSesion();
+            MenuPrincipal jfrm = new MenuPrincipal();
             jfrm.setVisible(true);
             RegistroBus.this.dispose();
         }

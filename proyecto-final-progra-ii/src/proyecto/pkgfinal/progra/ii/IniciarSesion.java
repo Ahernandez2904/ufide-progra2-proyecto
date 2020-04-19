@@ -149,11 +149,11 @@ public class IniciarSesion extends javax.swing.JFrame {
     }//GEN-LAST:event_uiAgregarActionPerformed
 
     private void uiUsuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_uiUsuarioKeyTyped
-        char c = evt.getKeyChar();
-        if (Character.isLetter(c)) {
-            getToolkit().beep();
-            evt.consume();
-            JOptionPane.showMessageDialog(null, "Ingrese su cedula");
+        char c = evt.getKeyChar(); // Aca se fija si C tiene alguna letra   
+        if (Character.isLetter(c)) { //Si la variable c posee letras entonces entra en el if
+            getToolkit().beep(); //envia un mensaje de error
+            evt.consume(); // borra el evento para que no suceda otra vez
+            JOptionPane.showMessageDialog(null, "Ingrese su cedula"); 
         }
     }//GEN-LAST:event_uiUsuarioKeyTyped
 

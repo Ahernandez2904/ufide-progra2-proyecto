@@ -15,20 +15,20 @@ public class GUIFactura extends javax.swing.JFrame {
     //int CantidadNinos = 0; //Conteo para ver cuantos Ninos ingresaron en el dia
     //int CantidadAdultos = 0; //Conteo para ver cuantos Adultos ingresaron en el dia
 
-    String[] choferes = {"Andres Vargas", "Mariana Diaz", "Alvaro Matarrita", "Maria Gonzalez", "Michael Conejo"};
-    String[] rutas = {"RT-789 / SJO - Tres Rios", "RT-456 / SJO - San Diego", "RT-231 / SJO - Concepcion"};
+    //String[] choferes = {"Andres Vargas", "Mariana Diaz", "Alvaro Matarrita", "Maria Gonzalez", "Michael Conejo"};
+    //String[] rutas = {"RT-789 / SJO - Tres Rios", "RT-456 / SJO - San Diego", "RT-231 / SJO - Concepcion"};
     
 
     final File choferesFolder = new File(System.getProperty("user.dir") + "\\RegistroChofer");
     final File rutasFolder = new File(System.getProperty("user.dir") + "\\RegistroRuta");
-final File busesFolder = new File(System.getProperty("user.dir") + "\\RegistroBus");
+    final File busesFolder = new File(System.getProperty("user.dir") + "\\RegistroBus");
 
     public void iniciarComboboxBuses (final File folder) {
             //for (int i = 0; i <= rutas.length - 1; i++) { uiComboID.addItem(rutas[i]); }
         try {
             for (final File fileEntry : folder.listFiles()) { // For que busca todos los archivos de la carpeta
                 if (fileEntry.isDirectory()) { //Si hay una carpeta, entra a revisarla
-                    iniciarComboboxChoferes(fileEntry); //lo inicia
+                    iniciarComboboxChoferes(fileEntry); //lo inicia 
                 } else {//sino sigue normal
                     //System.out.println(fileEntry.getName()); //nombre del archivo
                     //crea el fichero con la dirección del bus y el nombre del archivo
@@ -242,7 +242,6 @@ final File busesFolder = new File(System.getProperty("user.dir") + "\\RegistroBu
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(uiButtonCargarFactura, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(uiButtonGuardarFactura, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -265,9 +264,8 @@ final File busesFolder = new File(System.getProperty("user.dir") + "\\RegistroBu
                                 .addGap(104, 104, 104)))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(uiNoPago, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
-                                .addComponent(UIBus, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
+                            .addComponent(UIBus, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -279,6 +277,7 @@ final File busesFolder = new File(System.getProperty("user.dir") + "\\RegistroBu
                                 .addGap(0, 9, Short.MAX_VALUE))))
                     .addComponent(uiButtonCargarFactura1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -307,9 +306,9 @@ final File busesFolder = new File(System.getProperty("user.dir") + "\\RegistroBu
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(uiNoPago)
                         .addComponent(uiButtonVerFacActual)))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 327, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 327, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(uiButtonGuardarFactura)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(uiButtonCargarFactura)
